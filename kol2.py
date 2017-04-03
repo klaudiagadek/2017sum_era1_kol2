@@ -41,16 +41,18 @@ class Diary(object):
     def print_students_list(self):
         print "Students list {}".format(self.students_list)
 
-    def print_informaction_about_student(self, student):
+    def print_info_about_student(self, student):
         print "Student: {} has total_average_score {} ".format(student, self.get_students_total_average_score(student))
-        
+
 
 if __name__ == "__main__":
     class_diary = Diary()
+    class_diary.print_students_list()
     input = raw_input("Do you want to add a student? yes/other")
     if input == "yes":
         student_name = raw_input("Give me name and surname")
-        attendance = raw_input("Attendence")
+        attendance = raw_input("Attendance")
         scores = raw_input("Scores")
         scores = [int(i) for i in scores.split()]
         class_diary.add_student(student_name, attendance, scores)
+    print class_diary.get_students_average_score_in_class()
